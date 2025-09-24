@@ -12,16 +12,18 @@
 {{ range $manifest.bundles }}
   {{ range .componentManifest.controllerServices }}
     {{ $simpleClassName := replaceRE `.+?\.?([^\.]+)$` "$1" .type }}
+    {{ $packageName := replaceRE `((.+?)\.){2}?([^\.]+)$` "$3" .type }}
+    {{ println $packageName }}
     {{ $metadata := merge . (dict "title" $simpleClassName "componentType" "controller-services") }}
     {{ $string := jsonify $metadata }}
-    {{ $filename := printf "components/%s/_index.md" .type }}
+    {{ $filename := printf "components/%s/%s/%s/%s/_index.md" .group .artifact .version .type }}
     {{ $resource := resources.FromString $filename $string }}
     {{ $file := $resource.RelPermalink }}
 
     {{ if .additionalDetails }}
       {{ $detailsMarkdownPath := printf "docs/%s/%s/%s/%s/additionalDetails.md" .group .artifact .version .type }}
       {{ $detailsResource := resources.Get $detailsMarkdownPath }}
-      {{ $componentDetailsPath := printf "components/%s/additional-details.md" .type }}
+      {{ $componentDetailsPath := printf "components/%s/%s/%s/%s/additional-details.md" .group .artifact .version .type }}
       {{ $componentDetailsResource := slice $detailsHeader $detailsResource | resources.Concat $componentDetailsPath }}
       {{ $componentDetailsResource.Publish }}
     {{ end }}
@@ -30,14 +32,14 @@
     {{ $simpleClassName := replaceRE `.+?\.?([^\.]+)$` "$1" .type }}
     {{ $metadata := merge . (dict "title" $simpleClassName "componentType" "processors") }}
     {{ $string := jsonify $metadata }}
-    {{ $filename := printf "components/%s/_index.md" .type }}
+    {{ $filename := printf "components/%s/%s/%s/%s/_index.md" .group .artifact .version .type }}
     {{ $resource := resources.FromString $filename $string }}
     {{ $file := $resource.RelPermalink }}
 
     {{ if .additionalDetails }}
       {{ $detailsMarkdownPath := printf "docs/%s/%s/%s/%s/additionalDetails.md" .group .artifact .version .type }}
       {{ $detailsResource := resources.Get $detailsMarkdownPath }}
-      {{ $componentDetailsPath := printf "components/%s/additional-details.md" .type }}
+      {{ $componentDetailsPath := printf "components/%s/%s/%s/%s/additional-details.md" .group .artifact .version .type }}
       {{ $componentDetailsResource := slice $detailsHeader $detailsResource | resources.Concat $componentDetailsPath }}
       {{ $componentDetailsResource.Publish }}
     {{ end }}
@@ -46,14 +48,14 @@
     {{ $simpleClassName := replaceRE `.+?\.?([^\.]+)$` "$1" .type }}
     {{ $metadata := merge . (dict "title" $simpleClassName "componentType" "reporting-tasks") }}
     {{ $string := jsonify $metadata }}
-    {{ $filename := printf "components/%s/_index.md" .type }}
+    {{ $filename := printf "components/%s/%s/%s/%s/_index.md" .group .artifact .version .type }}
     {{ $resource := resources.FromString $filename $string }}
     {{ $file := $resource.RelPermalink }}
 
     {{ if .additionalDetails }}
       {{ $detailsMarkdownPath := printf "docs/%s/%s/%s/%s/additionalDetails.md" .group .artifact .version .type }}
       {{ $detailsResource := resources.Get $detailsMarkdownPath }}
-      {{ $componentDetailsPath := printf "components/%s/additional-details.md" .type }}
+      {{ $componentDetailsPath := printf "components/%s/%s/%s/%s/additional-details.md" .group .artifact .version .type }}
       {{ $componentDetailsResource := slice $detailsHeader $detailsResource | resources.Concat $componentDetailsPath }}
       {{ $componentDetailsResource.Publish }}
     {{ end }}
@@ -62,14 +64,14 @@
     {{ $simpleClassName := replaceRE `.+?\.?([^\.]+)$` "$1" .type }}
     {{ $metadata := merge . (dict "title" $simpleClassName "componentType" "parameter-providers") }}
     {{ $string := jsonify $metadata }}
-    {{ $filename := printf "components/%s/_index.md" .type }}
+    {{ $filename := printf "components/%s/%s/%s/%s/_index.md" .group .artifact .version .type }}
     {{ $resource := resources.FromString $filename $string }}
     {{ $file := $resource.RelPermalink }}
 
     {{ if .additionalDetails }}
       {{ $detailsMarkdownPath := printf "docs/%s/%s/%s/%s/additionalDetails.md" .group .artifact .version .type }}
       {{ $detailsResource := resources.Get $detailsMarkdownPath }}
-      {{ $componentDetailsPath := printf "components/%s/additional-details.md" .type }}
+      {{ $componentDetailsPath := printf "components/%s/%s/%s/%s/additional-details.md" .group .artifact .version .type }}
       {{ $componentDetailsResource := slice $detailsHeader $detailsResource | resources.Concat $componentDetailsPath }}
       {{ $componentDetailsResource.Publish }}
     {{ end }}
@@ -78,14 +80,14 @@
     {{ $simpleClassName := replaceRE `.+?\.?([^\.]+)$` "$1" .type }}
     {{ $metadata := merge . (dict "title" $simpleClassName "componentType" "flow-analysis-rules") }}
     {{ $string := jsonify $metadata }}
-    {{ $filename := printf "components/%s/_index.md" .type }}
+    {{ $filename := printf "components/%s/%s/%s/%s/_index.md" .group .artifact .version .type }}
     {{ $resource := resources.FromString $filename $string }}
     {{ $file := $resource.RelPermalink }}
 
     {{ if .additionalDetails }}
       {{ $detailsMarkdownPath := printf "docs/%s/%s/%s/%s/additionalDetails.md" .group .artifact .version .type }}
       {{ $detailsResource := resources.Get $detailsMarkdownPath }}
-      {{ $componentDetailsPath := printf "components/%s/additional-details.md" .type }}
+      {{ $componentDetailsPath := printf "components/%s/%s/%s/%s/additional-details.md" .group .artifact .version .type }}
       {{ $componentDetailsResource := slice $detailsHeader $detailsResource | resources.Concat $componentDetailsPath }}
       {{ $componentDetailsResource.Publish }}
     {{ end }}

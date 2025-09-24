@@ -5,12 +5,17 @@ CURRENT_VERSION=$(grep 'currentProjectVersion = ' config.toml | cut -d \" -f 2)
 RESOURCES_DIR=resources
 PREBUILD_DIR=prebuild
 
-MAVEN_BASE_URL=https://repository.apache.org/content/repositories/releases
+MAVEN_BASE_URL=https://nexus-private.hortonworks.com/nexus/repository/public
+#https://repository.cloudera.com/repository/cloudera-repos
 
 MANIFEST_JAR_URL="$MAVEN_BASE_URL/org/apache/nifi/nifi-runtime-manifest/$CURRENT_VERSION/nifi-runtime-manifest-$CURRENT_VERSION.jar"
 MANIFEST_JAR_PATH=$RESOURCES_DIR/nifi-runtime-manifest.jar
 MANIFEST_JSON=nifi-runtime-manifest.json
 MANIFEST_DOCS_DIR=docs
+
+CLOUDERA_MANIFEST_JAR_URL="$MAVEN_BASE_URL/com/cloudera/nifi-cdf-runtime-manifest/$CURRENT_VERSION/nifi-cdf-runtime-manifest-$CURRENT_VERSION.jar"
+CLOUDERA_MANIFEST_JAR_PATH=$RESOURCES_DIR/nifi-cdf-runtime-manifest.jar
+CLOUDERA_MANIFEST_JSON=nifi-cdf-runtime-manifest.json
 
 NIFI_DOCS_ZIP_URL="$MAVEN_BASE_URL/org/apache/nifi/nifi-docs/$CURRENT_VERSION/nifi-docs-$CURRENT_VERSION-resources.zip"
 NIFI_DOCS_ZIP_PATH=$RESOURCES_DIR/nifi-docs-resources.zip
@@ -29,6 +34,12 @@ fi
 echo "Downloading $MANIFEST_JAR_URL"
 curl -o $MANIFEST_JAR_PATH $MANIFEST_JAR_URL
 unzip -q -o -d $PREBUILD_DIR/assets $MANIFEST_JAR_PATH $MANIFEST_JSON $MANIFEST_DOCS_DIR/*
+
+# Download Cloudera Runtime Manifest JAR and extract JSON to prebuild
+echo "Downloading $CLOUDERA_MANIFEST_JAR_URL"
+curl -o $CLOUDERA_MANIFEST_JAR_PATH $CLOUDERA_MANIFEST_JAR_URL
+unzip -q -o -d $PREBUILD_DIR/assets $CLOUDERA_MANIFEST_JAR_PATH $CLOUDERA_MANIFEST_JSON $MANIFEST_DOCS_DIR/*
+
 
 # Download Documentation Resources and extract to prebuild
 echo "Downloading $NIFI_DOCS_ZIP_URL"

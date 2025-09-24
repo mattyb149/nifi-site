@@ -45,7 +45,7 @@
               <ul class="uk-list uk-list-collapse uk-text-light uk-text-truncate component-items">
                 {{ range $processors }}
                 <li {{ if eq .Title $pageTitle }}class="uk-text-bold" id="component-selected"{{ end }}>
-                  <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                  <p style="color:lightgray;display:inline"><a href="{{ .RelPermalink }}">{{ .Title }}</a>&nbsp;&nbsp;&nbsp;<i>{{ .Params.version }}</i></p>
                 </li>
                 {{ end }}
               </ul>
@@ -61,7 +61,7 @@
               <ul class="uk-list uk-list-collapse uk-text-light uk-text-truncate component-items">
                 {{ range $controllerServices }}
                 <li {{ if eq .Title $pageTitle }}class="uk-text-bold" id="component-selected"{{ end }}>
-                  <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                  <p style="color:lightgray;display:inline"><a href="{{ .RelPermalink }}">{{ .Title }}</a>&nbsp;&nbsp;&nbsp;<i>{{ .Params.version }}</i></p>
                 </li>
                 {{ end }}
               </ul>
@@ -77,7 +77,7 @@
               <ul class="uk-list uk-list-collapse uk-text-light uk-text-truncate component-items">
                 {{ range $reportingTasks }}
                 <li {{ if eq .Title $pageTitle }}class="uk-text-bold" id="component-selected"{{ end }}>
-                  <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                  <p style="color:lightgray;display:inline"><a href="{{ .RelPermalink }}">{{ .Title }}</a>&nbsp;&nbsp;&nbsp;<i>{{ .Params.version }}</i></p>
                 </li>
                 {{ end }}
               </ul>
@@ -93,7 +93,7 @@
               <ul class="uk-list uk-list-collapse uk-text-light uk-text-truncate component-items">
                 {{ range $parameterProviders }}
                 <li {{ if eq .Title $pageTitle }}class="uk-text-bold" id="component-selected"{{ end }}>
-                  <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                  <p style="color:lightgray;display:inline"><a href="{{ .RelPermalink }}">{{ .Title }}</a>&nbsp;&nbsp;&nbsp;<i>{{ .Params.version }}</i></p>
                 </li>
                 {{ end }}
               </ul>
@@ -109,7 +109,7 @@
               <ul class="uk-list uk-list-collapse uk-text-light uk-text-truncate component-items">
                 {{ range $flowAnalysisRules }}
                 <li {{ if eq .Title $pageTitle }}class="uk-text-bold" id="component-selected"{{ end }}>
-                  <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                  <p style="color:lightgray;display:inline"><a href="{{ .RelPermalink }}">{{ .Title }}</a>&nbsp;&nbsp;&nbsp;<i>{{ .Params.version }}</i></p>
                 </li>
                 {{ end }}
               </ul>

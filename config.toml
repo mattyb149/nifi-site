@@ -1,4 +1,4 @@
-baseURL = "https://nifi.apache.org"
+baseURL = "https://docs.cloudera.com"
 title = "Apache NiFi"
 copyright = "The Apache Software Foundation"
 languageCode = "en"
@@ -29,7 +29,7 @@ assets = "assets"
 matomoSiteId = 28
 productionHost = "nifi.apache.org"
 
-staticDocsPath = "/nifi-docs"
+staticDocsPath = "/cfm/4.3.3.0/nifi-docs"
 
 apacheFoundationGroupsUrl = "https://projects.apache.org/json/foundation/groups.json"
 apacheFoundationPeopleNameUrl = "https://projects.apache.org/json/foundation/people_name.json"
@@ -39,10 +39,9 @@ downloadPathUrl = "https://downloads.apache.org/nifi"
 archiveDownloadPathUrl = "https://archive.apache.org/dist/nifi"
 mavenCentralDownloadPathUrl = "https://repo1.maven.org/maven2/org/apache/nifi"
 
-currentProjectVersion = "2.6.0"
-currentProjectVersionReleased = "2025-09-21"
-
-previousProjectVersion = "1.28.1"
+currentProjectVersion = "2.4.0.4.3.3.0-40"
+currentProjectVersionReleased = "2025-04-30"
+previousProjectVersion = "2.4.0"
 previousProjectVersionReleased = "2024-11-19"
 
 minifiCppCurrentProjectVersion = "0.99.1"
